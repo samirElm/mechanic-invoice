@@ -24,6 +24,7 @@ gem "devise-i18n"
 gem "devise-i18n-views"
 
 gem 'money-rails'
+gem "cocoon"
 
 group :development, :test do
   gem "spring"

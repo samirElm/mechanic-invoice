@@ -3,14 +3,20 @@
     <%= f.error_notification %>
 
     <h2>Client</h2>
-    <%= f.input :customer_id, required: true, autofocus: true %>
+    <%= f.input :customer_id, required: true, autofocus: true, collection: @customers.map(&:first_name) %>
     <h2>Main d'oeuvre</h2>
     <%= f.input :description_mo, required: true, autofocus: true %>
     <%= f.input :time_mo, required: true, autofocus: true %>
+
     <h2>Pièces</h2>
-    <%= f.simple_fields_for :invoiced_parts do |builder| %>
-      <%= builder.input :part_id %>
-    <% end %>
+    <div id="invoiced_parts">
+      <%= f.simple_fields_for :invoiced_parts do |invoiced_part| %>
+        <%= render 'invoiced_part_fields', :f => invoiced_part %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association 'add invoiced part', f, :invoiced_parts %>
+      </div>
+    </div>
 
     <%= f.button :submit, "Ajouter", class: "btn btn-primary" %>
   <% end %>
