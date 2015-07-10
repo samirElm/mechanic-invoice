@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710174402) do
+ActiveRecord::Schema.define(version: 20150710193843) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 20150710174402) do
   create_table "invoiced_parts", force: :cascade do |t|
     t.integer "invoice_id"
     t.integer "part_id"
+    t.integer "price_ttc_cents",    default: 0,     null: false
+    t.string  "price_ttc_currency", default: "EUR", null: false
+    t.integer "price_ht_cents",     default: 0,     null: false
+    t.string  "price_ht_currency",  default: "EUR", null: false
   end
 
   add_index "invoiced_parts", ["invoice_id"], name: "index_invoiced_parts_on_invoice_id", using: :btree
