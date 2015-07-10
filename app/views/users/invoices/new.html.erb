@@ -3,7 +3,7 @@
     <%= f.error_notification %>
 
     <h2>Client</h2>
-    <%= f.input :customer_id, required: true, autofocus: true, collection: @customers.map(&:first_name) %>
+    <%= f.collection_select :customer_id, @customers, :id, :first_name %>
     <h2>Main d'oeuvre</h2>
     <%= f.input :description_mo, required: true, autofocus: true %>
     <%= f.input :time_mo, required: true, autofocus: true %>
