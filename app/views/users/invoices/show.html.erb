@@ -1,4 +1,5 @@
 <div class="container">
   <h1>Show de l'invoice n°<%= @invoice.id %></h1>
+  <p><%= @invoice.customer.first_name %></p>
   <%= link_to "Voir toutes les factures", users_invoices_path %>
 </div>
