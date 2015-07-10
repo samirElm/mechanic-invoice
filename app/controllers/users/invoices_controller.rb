@@ -10,6 +10,7 @@ class Users::InvoicesController < ApplicationController
 
   def new
     @invoice = current_user.invoices.build
+    @invoice.invoiced_parts.build
   end
 
   def create
@@ -35,6 +36,6 @@ class Users::InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.require(:invoice).permit(:customer_id)
+    params.require(:invoice).permit(:customer_id, :description_mo, :time_mo, invoiced_parts_attributes: [:part_id])
   end
 end
