@@ -6,6 +6,12 @@
         <%= f.error_notification %>
 
         <%= f.input :email, required: true, autofocus: true %>
+        <%= f.input :first_name, required: true, autofocus: true %>
+        <%= f.input :last_name, required: true, autofocus: true %>
+        <%= f.input :address, required: true, autofocus: true %>
+        <%= f.input :phone, required: true, autofocus: true %>
+        <%= f.input :siret, required: true, autofocus: true %>
+        <%= f.input :price_per_hour, required: true, autofocus: true %>
         <%= f.input :password, required: true %>
         <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
       <% end %>
