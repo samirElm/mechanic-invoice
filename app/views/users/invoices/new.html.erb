@@ -1,23 +1,30 @@
 <div class="container">
-  <%= simple_form_for(@invoice, url: users_invoices_path, html: { multipart: true }) do |f| %>
-    <%= f.error_notification %>
+  <div class="row">
+    <%= simple_form_for(@invoice, url: users_invoices_path, html: { multipart: true }) do |f| %>
+      <%= f.error_notification %>
 
-    <h2>Client</h2>
-    <%= f.collection_select :customer_id, @customers, :id, :first_name %>
-    <h2>Main d'oeuvre</h2>
-    <%= f.input :description_mo, required: true, autofocus: true %>
-    <%= f.input :time_mo, required: true, autofocus: true %>
+      <h2>Client</h2>
+      <%= f.collection_select :customer_id, @customers, :id, :first_name %>
+      <h2>Main d'oeuvre</h2>
 
-    <h2>Pièces</h2>
-    <div id="invoiced_parts">
-      <%= f.simple_fields_for :invoiced_parts do |invoiced_part| %>
-        <%= render 'invoiced_part_fields', :f => invoiced_part %>
-      <% end %>
-      <div class="links">
-        <%= link_to_add_association 'add invoiced part', f, :invoiced_parts %>
+      <div class="col-xs-8">
+        <%= f.input :description_mo, required: true, autofocus: true %>
       </div>
-    </div>
+      <div class="col-xs-4">
+        <%= f.input :time_mo, required: true, autofocus: true %>
+      </div>
 
-    <%= f.button :submit, "Ajouter", class: "btn btn-primary" %>
-  <% end %>
+      <h2>Pièces</h2>
+      <div id="invoiced_parts">
+        <%= f.simple_fields_for :invoiced_parts do |invoiced_part| %>
+          <%= render 'invoiced_part_fields', :f => invoiced_part %>
+        <% end %>
+        <div class="links">
+          <%= link_to_add_association 'add invoiced part', f, :invoiced_parts, onclick: "AddChosenPlugin();" %>
+        </div>
+      </div>
+
+      <%= f.button :submit, "Ajouter", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
