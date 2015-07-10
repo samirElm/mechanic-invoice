@@ -1,3 +1,12 @@
 <div class="container">
   <h1>nb d'invoices: <%= @invoices.length %></h1>
+
+  <ul>
+    <% @invoices.each do |invoice| %>
+      <li>
+        <%= link_to invoice.id, users_invoice_path(invoice) %>
+        <%= invoice.customer.first_name %>
+      </li>
+    <% end %>
+  </ul>
 </div>
