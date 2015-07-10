@@ -1,10 +1,16 @@
 <div class="container">
-  <%= simple_form_for(@invoice, url: users_invoices_path) do |f| %>
+  <%= simple_form_for(@invoice, url: users_invoices_path, html: { multipart: true }) do |f| %>
     <%= f.error_notification %>
 
+    <h2>Client</h2>
     <%= f.input :customer_id, required: true, autofocus: true %>
+    <h2>Main d'oeuvre</h2>
     <%= f.input :description_mo, required: true, autofocus: true %>
     <%= f.input :time_mo, required: true, autofocus: true %>
+    <h2>Pièces</h2>
+    <%= f.simple_fields_for :invoiced_parts do |builder| %>
+      <%= builder.input :part_id %>
+    <% end %>
 
     <%= f.button :submit, "Ajouter", class: "btn btn-primary" %>
   <% end %>
