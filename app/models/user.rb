@@ -5,4 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   monetize :price_per_hour_cents
+
+  has_many :customers
+  has_many :invoices
 end
