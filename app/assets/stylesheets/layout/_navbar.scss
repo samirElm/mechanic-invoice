@@ -1,15 +1,15 @@
 /* -------------------------------------
  * Colors & Fonts
  * ------------------------------------- */
-$navbar-color: $gray-light;
-$navbar-hover-color: $yellow;
+$navbar-color: white;
+$navbar-hover-color: $darkblue;
 $navbar-font-family: $navbar-font;
 $navbar-font-size: 14px;
 $navbar-text-transform: capitalize;
 $navbar-font-weight: 300;
 $navbar-letter-spacing: 1.5px;
 $navbar-font-family: $navbar-font;
-$navbar-bg: white;
+$navbar-bg: $blue;
 
 /* -------------------------------------
  * Box model
@@ -28,7 +28,7 @@ $navbar-btn-height: 40px;
 $navbar-btn-bg: lightgrey;
 $navbar-btn-color: white;
 $navbar-btn-horizontal-padding: 10px;
-$navbar-btn-radius: 2px;
+$navbar-btn-radius: 0px;
 
 /* -------------------------------------
  * Navbar profile picture
@@ -157,3 +157,20 @@ $navbar-profile-border-width: 2px;
     }
   }
 }
+
+@media (min-width: 768px) {
+  .navbar {
+    border-radius: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

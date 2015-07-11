@@ -1,8 +1,48 @@
+
+body{
+color: $darkblue;
+background-color: $gray-lighter;
+}
+
+
+h2, h3, h4 {
+  color: $darkblue;
+  font-weight: 300;
+}
+
+h1{
+  color: $darkblue;
+  font-size: 45px;
+  text-transform: uppercase;
+  font-weight: 100;
+}
+
+
+h2{
+  font-size: 30px;
+}
+
+h3{
+  font-size: 24px;
+}
+
+h4{
+  font-size: 18px;
+}
+
+a {
+  cursor: pointer;
+}
+
+a:hover{
+  transition: ease 0.3s;
+}
+
 #main-container {
   padding-left: $navbar-width;
 }
 
 .container {
   width: auto;
-  padding-left: 20px;
+  padding: 20px 30px;
 }

@@ -6,7 +6,7 @@
       <div class="row" id="search-service-form">
         <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 has-feedback-left padding-sub-row">
           <i class="form-control-feedback form-control-feedback-left fa fa-search"></i>
-          <input type="text" class="search-input" id="search-term" onkeyup="searchServices('all-invoices');" placeholder="Nom, mo, immat" style="outline: none;">
+          <input type="text" class="search-input" id="search-term" onkeyup="searchServices('all-invoices');" placeholder="Nom du client, immat, ..." style="outline: none;">
         </div>
       </div>
     </div>
@@ -15,23 +15,47 @@
 
 <div class="container">
   <div id="all-invoices">
-    <h2>Liste des factures</h2>
-
+    <% if @invoices.empty? %>
+      <h3>Aucune facture</h3>
+    <% else %>
       <% @invoices.each do |invoice| %>
         <div class="div-content" data-customer-first-name="<%= invoice.customer.first_name.downcase %>" data-customer-last-name="<%= invoice.customer.last_name.downcase %>" data-description-mo="<%= invoice.description_mo.downcase %>" data-immat="<%= invoice.customer.immat %>">
-          <div id="card-invoice">
-
-              <%= link_to invoice.id, users_invoice_path(invoice) %>
-
+          <div class="card-invoice">
+            <div class="row">
+              <div class="col-xs-9">
+                <h3><%= link_to "Facture n°#{invoice.id}", users_invoice_path(invoice) %></h3>
+                <p>
+                  <i class="fa fa-user"></i> <%= invoice.customer.first_name %> <%= invoice.customer.last_name %>
+                </p>
+                <p>
+                  <i class="fa fa-wrench"></i> <%= invoice.description_mo %>
+                </p>
+                <p>
+                  <i class="fa fa-calendar"></i> <%= invoice.created_at.strftime('%d/%m/%Y') %>
+                </p>
+              </div>
+              <div class="col-xs-3">
+                <div class="row text-center">
+                  <div class="highlight-price-number">
+                    <h4><%= invoice.total_price %> €</h4>
+                  </div>
+                </div>
+                <div class="row">
+                  <%= link_to "Télécharger", "#", class: "btn btn-info button-full-width" %>
+                </div>
+                <div class="row">
+                  <%= link_to "Imprimer", "#", class: "btn btn-primary button-full-width" %>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       <% end %>
-
+    <% end %>
   </div>
 
   <div id="search-results" style="display: none;">
-    <div class="row border-bottom padding-sub-row">
-      <h2>Résultats de votre recherche</h2>
+    <div class="row">
     </div>
     <div id="search-results-content"></div>
     <div id="no-results-found" style="display: none;">
