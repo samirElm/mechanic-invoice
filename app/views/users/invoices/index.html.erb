@@ -1,11 +1,40 @@
-<div class="container">
-  <h1>Liste des factures</h1>
+<% content_for(:banner) do %>
+  <div>
+    <div style="background-image: url(<%= asset_path 'motor.jpg' %>)" class="generic-banner">
+    <div class="text-banner">
+      <h1>Factures</h1>
+      <div class="row" id="search-service-form">
+        <div class="col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4 has-feedback-left padding-sub-row">
+          <i class="form-control-feedback form-control-feedback-left fa fa-search"></i>
+          <input type="text" class="search-input" id="search-term" onkeyup="searchServices('all-invoices');" placeholder="Nom, mo, immat" style="outline: none;">
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>
 
-  <ul>
-    <% @invoices.each do |invoice| %>
-      <li>
-        <%= link_to invoice.id, users_invoice_path(invoice) %>
-      </li>
-    <% end %>
-  </ul>
+
+<div class="container">
+  <div id="all-invoices">
+    <h2>Liste des factures</h2>
+    <ul>
+      <% @invoices.each do |invoice| %>
+        <div class="div-content" data-customer-name="<%= invoice.customer.first_name.downcase %>" data-description-mo="<%= invoice.description_mo.downcase %>" data-immat="<%= invoice.customer.immat %>">
+          <li>
+            <%= link_to invoice.id, users_invoice_path(invoice) %>
+          </li>
+        </div>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="search-results" style="display: none;">
+    <div class="row border-bottom padding-sub-row">
+      <h2>Résultats de votre recherche</h2>
+    </div>
+    <div id="search-results-content"></div>
+    <div id="no-results-found" style="display: none;">
+      hey
+    </div>
+  </div>
 </div>
