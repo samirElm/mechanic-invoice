@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150710193843) do
+ActiveRecord::Schema.define(version: 20150711120244) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,13 +40,15 @@ ActiveRecord::Schema.define(version: 20150710193843) do
   add_index "invoiced_parts", ["part_id"], name: "index_invoiced_parts_on_part_id", using: :btree
 
   create_table "invoices", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "customer_id"
-    t.date    "date"
-    t.text    "description_mo"
-    t.float   "time_mo"
-    t.integer "total_price_cents",    default: 0,     null: false
-    t.string  "total_price_currency", default: "EUR", null: false
+    t.integer  "user_id"
+    t.integer  "customer_id"
+    t.date     "date"
+    t.text     "description_mo"
+    t.float    "time_mo"
+    t.integer  "total_price_cents",    default: 0,     null: false
+    t.string   "total_price_currency", default: "EUR", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "invoices", ["customer_id"], name: "index_invoices_on_customer_id", using: :btree
