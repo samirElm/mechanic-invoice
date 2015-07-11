@@ -1,9 +1,12 @@
 <div class="nested-fields">
-  <div class="col-xs-6">
+  <div class="col-xs-4">
     <%= f.input :part_id, collection: @parts %>
   </div>
-  <div class="col-xs-6">
+  <div class="col-xs-4">
     <%= f.input :price_ht %>
+  </div>
+  <div class="col-xs-4">
+    <%= f.input :ref %>
   </div>
 
   <%= link_to_remove_association 'remove', f %>

@@ -21,7 +21,7 @@ class Users::InvoicesController < ApplicationController
     if @invoice.save
       @invoice.define_parts_ttc_price
 
-      redirect_to users_invoices_path
+      redirect_to users_invoice_path(@invoice)
     else
       flash[:alert] = "Erreur"
       render :new
@@ -40,6 +40,6 @@ class Users::InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.require(:invoice).permit(:customer_id, :description_mo, :time_mo, invoiced_parts_attributes: [:part_id, :price_ht, :_destroy])
+    params.require(:invoice).permit(:customer_id, :description_mo, :time_mo, invoiced_parts_attributes: [:part_id, :price_ht, :ref, :_destroy])
   end
 end

@@ -18,6 +18,8 @@ searchServices = function (allDiv) {
         $(element).clone().appendTo(searchResultsContent)
       } else if (element.dataset.customerLastName.indexOf(searchTerm.toLowerCase()) > -1) {
         $(element).clone().appendTo(searchResultsContent)
+      } else if (element.dataset.customerFullName.indexOf(searchTerm.toLowerCase()) > -1) {
+        $(element).clone().appendTo(searchResultsContent)
       } else if (element.dataset.descriptionMo.indexOf(searchTerm.toLowerCase()) > -1) {
         $(element).clone().appendTo(searchResultsContent)
       } else if (element.dataset.immat.indexOf(searchTerm.replace(/-/g, '')) > -1) {

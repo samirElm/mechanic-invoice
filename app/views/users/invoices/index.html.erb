@@ -19,7 +19,7 @@
       <h3>Aucune facture</h3>
     <% else %>
       <% @invoices.each do |invoice| %>
-        <div class="div-content" data-customer-first-name="<%= invoice.customer.first_name.downcase %>" data-customer-last-name="<%= invoice.customer.last_name.downcase %>" data-description-mo="<%= invoice.description_mo.downcase %>" data-immat="<%= invoice.customer.immat %>">
+        <div class="div-content" data-customer-first-name="<%= invoice.customer.first_name.downcase %>" data-customer-last-name="<%= invoice.customer.last_name.downcase %>" data-customer-full-name="<%= invoice.customer.first_name.downcase %> <%= invoice.customer.last_name.downcase %>" data-description-mo="<%= invoice.description_mo.downcase %>" data-immat="<%= invoice.customer.immat %>">
           <div class="card-invoice">
             <div class="row">
               <div class="col-xs-9">
