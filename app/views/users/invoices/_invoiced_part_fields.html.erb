@@ -1,13 +1,18 @@
 <div class="nested-fields">
-  <div class="col-xs-4">
-    <%= f.input :part_id, collection: @parts %>
+  <div class="col-xs-4 input-padded">
+    <%= f.input :part_id, collection: @parts, label: "Nom de la pièce" %>
   </div>
-  <div class="col-xs-4">
-    <%= f.input :price_ht %>
+  <div class="col-xs-3 input-padded">
+    <%= f.input :price_ht, label: "Prix HT" %>
   </div>
-  <div class="col-xs-4">
-    <%= f.input :ref %>
+  <div class="col-xs-3 input-padded">
+    <%= f.input :ref, label: "Référence" %>
   </div>
-
-  <%= link_to_remove_association 'remove', f %>
+  <div class="col-xs-2 input-padded top-align">
+    <%= link_to_remove_association f, class: "" do  %>
+    <div id="remove-part-link">
+      <i class="fa fa-close"></i> Supprimer
+    </div>
+    <% end %>
+  </div>
 </div>

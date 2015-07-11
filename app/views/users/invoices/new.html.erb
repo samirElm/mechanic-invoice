@@ -2,29 +2,36 @@
   <div class="row">
     <%= simple_form_for(@invoice, url: users_invoices_path, html: { multipart: true }) do |f| %>
       <%= f.error_notification %>
-
-      <h2>Client</h2>
-      <%= f.collection_select :customer_id, @customers, :id, :first_name %>
-      <h2>Main d'oeuvre</h2>
-
-      <div class="col-xs-8">
-        <%= f.input :description_mo, required: true, autofocus: true %>
-      </div>
-      <div class="col-xs-4">
-        <%= f.input :time_mo, required: true, autofocus: true %>
-      </div>
-
-      <h2>Pièces</h2>
-      <div id="invoiced_parts">
-        <%= f.simple_fields_for :invoiced_parts do |invoiced_part| %>
-          <%= render 'invoiced_part_fields', :f => invoiced_part %>
-        <% end %>
-        <div class="links">
-          <%= link_to_add_association 'add invoiced part', f, :invoiced_parts, onclick: "AddChosenPlugin();" %>
+      <div class="row">
+        <div class="col-xs-3 input-padded">
+          <h2>Client</h2>
+          <%= f.collection_select :customer_id, @customers, :id, :first_name %>
+        </div>
+        <div class="col-xs-6 input-padded">
+          <h2>Main d'oeuvre</h2>
+          <%= f.input :description_mo, required: true, autofocus: true, as: :string, label: false %>
+        </div>
+        <div class="col-xs-3 input-padded">
+          <h2>Temps</h2>
+          <%= f.input :time_mo, required: true, autofocus: true, label: false %>
         </div>
       </div>
-
-      <%= f.button :submit, "Ajouter", class: "btn btn-primary" %>
+      <div class="row">
+        <h2>Pièces</h2>
+        <div id="invoiced_parts">
+          <%= f.simple_fields_for :invoiced_parts do |invoiced_part| %>
+            <%= render 'invoiced_part_fields', :f => invoiced_part %>
+          <% end %>
+          <div class="links">
+            <div class="col-xs-12 input-padded">
+            <%= link_to_add_association 'Ajouter une autre pièce', f, :invoiced_parts, onclick: "AddChosenPlugin();", class: "btn btn-info" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <%= f.button :submit, "Créer cette facture", class: "btn btn-primary" %>
+      </div>
     <% end %>
   </div>
 </div>
