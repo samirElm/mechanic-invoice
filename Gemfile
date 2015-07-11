@@ -27,6 +27,10 @@ gem 'money-rails'
 gem "cocoon"
 gem "bourbon"
 
+gem 'wicked_pdf'
+gem 'wkhtmltopdf-binary'
+gem 'wkhtmltopdf-heroku', '~> 2.12.2.1'
+
 group :development, :test do
   gem "spring"
   gem "annotate"
