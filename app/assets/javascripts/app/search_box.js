@@ -14,7 +14,9 @@ searchServices = function (allDiv) {
 
     $(searchResultsContent).html('');
     jQuery.each( elements, function( i, element ) {
-      if (element.dataset.customerName.indexOf(searchTerm.toLowerCase()) > -1) {
+      if (element.dataset.customerFirstName.indexOf(searchTerm.toLowerCase()) > -1) {
+        $(element).clone().appendTo(searchResultsContent)
+      } else if (element.dataset.customerLastName.indexOf(searchTerm.toLowerCase()) > -1) {
         $(element).clone().appendTo(searchResultsContent)
       } else if (element.dataset.descriptionMo.indexOf(searchTerm.toLowerCase()) > -1) {
         $(element).clone().appendTo(searchResultsContent)

@@ -13,19 +13,20 @@
   </div>
 <% end %>
 
-
 <div class="container">
   <div id="all-invoices">
     <h2>Liste des factures</h2>
-    <ul>
+
       <% @invoices.each do |invoice| %>
-        <div class="div-content" data-customer-name="<%= invoice.customer.first_name.downcase %>" data-description-mo="<%= invoice.description_mo.downcase %>" data-immat="<%= invoice.customer.immat %>">
-          <li>
-            <%= link_to invoice.id, users_invoice_path(invoice) %>
-          </li>
+        <div class="div-content" data-customer-first-name="<%= invoice.customer.first_name.downcase %>" data-customer-last-name="<%= invoice.customer.last_name.downcase %>" data-description-mo="<%= invoice.description_mo.downcase %>" data-immat="<%= invoice.customer.immat %>">
+          <div id="card-invoice">
+
+              <%= link_to invoice.id, users_invoice_path(invoice) %>
+
+          </div>
         </div>
       <% end %>
-    </ul>
+
   </div>
 
   <div id="search-results" style="display: none;">

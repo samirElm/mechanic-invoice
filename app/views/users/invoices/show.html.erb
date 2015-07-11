@@ -1,3 +1,12 @@
+<% content_for(:banner) do %>
+  <div>
+    <div style="background-image: url(<%= asset_path 'motor.jpg' %>)" class="generic-banner">
+    <div class="text-banner" style="padding-top: 30px;">
+      <h1>Facture n°<%= @invoice.id %></h1>
+    </div>
+  </div>
+<% end %>
+
 <div class="container">
   <h1>Show de l'invoice n°<%= @invoice.id %></h1>
   <p><%= @invoice.customer.first_name %></p>
