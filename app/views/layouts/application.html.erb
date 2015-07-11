@@ -11,10 +11,18 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render "shared/navbar" %>
-  <%= render "shared/flashes" %>
+  <div class="row">
+    <% render "shared/navbar" %>
+    <%= render "shared/flashes" %>
 
-  <%= yield %>
+    <!-- Main Content -->
+    <div class="container-fluid">
+        <div class="side-body">
+            <%= yield %>
+        </div>
+    </div>
+  </div>
+
 
   <%= javascript_include_tag :application %>
   <%= yield(:after_js) %>
