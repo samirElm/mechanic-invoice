@@ -42,7 +42,7 @@ $navbar-profile-border-width: 2px;
  * ------------------------------------- */
 .navbar-wagon {
   width: $navbar-width;
-  position: absolute;
+  position: fixed;
   height: 100vh;
   background: $navbar-bg;
   font-family: $navbar-font-family;
