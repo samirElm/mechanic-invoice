@@ -6,12 +6,34 @@
 .generic-banner{
   background-position: center center;
   background-size: cover;
-  height: 250px;
+  height: 140px;
   box-shadow: 0 2px 3px #272727;
 
 }
 .text-banner{
   color: white;
-  padding-top: 80px;
+  padding-top: 1px;
   text-align: center;
+}
+
+.search-input {
+  padding: 8px;
+  border-radius: 1px;
+  border: none;
+  width: 90%;
+  opacity: 0.85;
+  color: $darkblue;
+}
+
+#search-service-form {
+  .has-feedback-left > .search-input {
+    padding-left: 11%;
+  }
+
+  .form-control-feedback-left {
+    top: 10px;
+    left: 5%;
+    font-size: 17px;
+    color: $blue;
+  }
 }
