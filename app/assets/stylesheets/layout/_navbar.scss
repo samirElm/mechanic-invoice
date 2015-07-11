@@ -15,6 +15,7 @@ $navbar-bg: white;
  * Box model
  * ------------------------------------- */
 $navbar-height: 50px;
+$navbar-width: 18vw;
 $navbar-vertical-padding: 10px;
 $navbar-horizontal-padding: 20px;
 $navbar-border-bottom-width: 1px;
@@ -40,6 +41,9 @@ $navbar-profile-border-width: 2px;
  * SCSS code
  * ------------------------------------- */
 .navbar-wagon {
+  width: $navbar-width;
+  position: absolute;
+  height: 100vh;
   background: $navbar-bg;
   font-family: $navbar-font-family;
   border: none;
