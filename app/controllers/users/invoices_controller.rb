@@ -1,7 +1,7 @@
 class Users::InvoicesController < ApplicationController
 
   def index
-    @invoices = Invoice.all
+    @invoices = current_user.invoices
   end
 
   def show
