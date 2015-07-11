@@ -6,6 +6,14 @@ class Users::InvoicesController < ApplicationController
 
   def show
     @invoice = Invoice.find(params[:id])
+    respond_to do |format|
+      format.html
+      format.pdf do
+        render pdf: "Facture-#{@invoice.id}",
+               layout: 'layouts/application.pdf.erb',  # layout used
+               show_as_html: params[:debug].present?
+      end
+    end
   end
 
   def new
