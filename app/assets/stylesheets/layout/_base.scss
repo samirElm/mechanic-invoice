@@ -31,10 +31,12 @@ h4{
 }
 
 a {
+  color: $blue;
   cursor: pointer;
 }
 
 a:hover{
+  color: $yellow;
   transition: ease 0.3s;
 }
 

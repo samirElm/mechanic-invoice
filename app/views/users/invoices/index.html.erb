@@ -19,7 +19,7 @@
       <h3>Aucune facture</h3>
     <% else %>
       <% @invoices.each do |invoice| %>
-        <div class="div-content" data-customer-first-name="<%= invoice.customer.first_name.downcase %>" data-customer-last-name="<%= invoice.customer.last_name.downcase %>" data-customer-full-name="<%= invoice.customer.first_name.downcase %> <%= invoice.customer.last_name.downcase %>" data-description-mo="<%= invoice.description_mo.downcase %>" data-immat="<%= invoice.customer.immat %>">
+        <div class="div-content" data-customer-first-name="<%= I18n.transliterate(invoice.customer.first_name.downcase) %>" data-customer-last-name="<%= I18n.transliterate(invoice.customer.last_name.downcase) %>" data-customer-full-name="<%= I18n.transliterate(invoice.customer.first_name.downcase) %> <%= I18n.transliterate(invoice.customer.last_name.downcase) %>" data-description-mo="<%= invoice.description_mo.downcase %>" data-immat="<%= invoice.customer.immat %>" data-parts-name="<%= I18n.transliterate(invoice.parts.map(&:name).join(' ')).downcase %>" data-parts-ref="<%= invoice.invoiced_parts.map(&:ref).join(' ') %>">
           <div class="card-invoice">
             <div class="row">
               <div class="col-xs-9">
@@ -32,6 +32,9 @@
                 </p>
                 <p>
                   <i class="fa fa-calendar"></i> <%= invoice.created_at.strftime('%d/%m/%Y') %>
+                </p>
+                <p>
+                  <i class="fa fa-car"></i> <%= invoice.customer.immat %>
                 </p>
               </div>
               <div class="col-xs-3">
