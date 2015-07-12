@@ -1,1 +1,77 @@
-<h1>Hey</h1>
+<header class="clearfix">
+  <div id="logo">
+    <img src="">
+  </div>
+  <h1>Facture n°<%= @invoice.id %></h1>
+  <div id="company" class="clearfix">
+    <div><%= current_user.first_name %> <%= current_user.last_name %></div>
+    <div><%= current_user.siret %></div>
+    <div><%= current_user.address %></div>
+    <div><%= current_user.phone %></div>
+    <div><a href="mailto:<%= current_user.first_name %>"><%= current_user.email %></a></div>
+  </div>
+  <div id="project">
+    <div><span>CLIENT</span> <%= @invoice.customer.first_name %> <%= @invoice.customer.last_name %></div>
+    <div><span>ADRESSE</span> <%= @invoice.customer.address %></div>
+    <div><span>DATE</span> <%= @invoice.created_at.strftime("%d/%m/%Y") %></div>
+  </div>
+</header>
+<main>
+  <table>
+    <thead>
+      <tr>
+        <th class="service">SERVICE</th>
+        <th class="desc">DESCRIPTION</th>
+        <th>PRIX UNIT.</th>
+        <th>QTE</th>
+        <th>TOTAL</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="service">Main-d'oeuvre</td>
+        <td class="desc"><%= @invoice.description_mo %></td>
+        <td class="unit"><%= current_user.price_per_hour %>€</td>
+        <td class="qty"><%= @invoice.time_mo %></td>
+        <td class="total"><%= @invoice.price_mo %></td>
+      </tr>
+      <tr>
+        <td class="service">Development</td>
+        <td class="desc">Developing a Content Management System-based Website</td>
+        <td class="unit">$40.00</td>
+        <td class="qty">80</td>
+        <td class="total">$3,200.00</td>
+      </tr>
+      <tr>
+        <td class="service">SEO</td>
+        <td class="desc">Optimize the site for search engines (SEO)</td>
+        <td class="unit">$40.00</td>
+        <td class="qty">20</td>
+        <td class="total">$800.00</td>
+      </tr>
+      <tr>
+        <td class="service">Training</td>
+        <td class="desc">Initial training sessions for staff responsible for uploading web content</td>
+        <td class="unit">$40.00</td>
+        <td class="qty">4</td>
+        <td class="total">$160.00</td>
+      </tr>
+      <tr>
+        <td colspan="4">SUBTOTAL</td>
+        <td class="total">$5,200.00</td>
+      </tr>
+      <tr>
+        <td colspan="4">TAX 25%</td>
+        <td class="total">$1,300.00</td>
+      </tr>
+      <tr>
+        <td colspan="4" class="grand total">GRAND TOTAL</td>
+        <td class="grand total">$6,500.00</td>
+      </tr>
+    </tbody>
+  </table>
+  <div id="notices">
+    <div>NOTICE:</div>
+    <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+  </div>
+</main>
