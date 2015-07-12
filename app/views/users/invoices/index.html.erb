@@ -35,16 +35,13 @@
                 </p>
               </div>
               <div class="col-xs-3">
-                <div class="row text-center">
+                <div class="row text-center padding-bottom-row">
                   <div class="highlight-price-number">
                     <h4><%= invoice.total_price %> €</h4>
                   </div>
                 </div>
                 <div class="row">
-                  <%= link_to "Télécharger", "#", class: "btn btn-info button-full-width" %>
-                </div>
-                <div class="row">
-                  <%= link_to "Imprimer", "#", class: "btn btn-primary button-full-width" %>
+                  <%= link_to "Imprimer / Télécharger", users_invoice_path(id: invoice.id, format: 'pdf'), class: "btn btn-info button-full-width", target: "_blank" %>
                 </div>
               </div>
             </div>
