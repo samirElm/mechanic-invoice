@@ -33,45 +33,33 @@
         <td class="desc"><%= @invoice.description_mo %></td>
         <td class="unit"><%= current_user.price_per_hour %>€</td>
         <td class="qty"><%= @invoice.time_mo %></td>
-        <td class="total"><%= @invoice.price_mo %></td>
+        <td class="total"><%= @invoice.price_mo %>€</td>
+      </tr>
+      <% @invoice.invoiced_parts.each do |invoiced_part| %>
+        <tr>
+          <td class="service">Pièce</td>
+          <td class="desc"><%= invoiced_part.part.name %></td>
+          <td class="unit"><%= invoiced_part.price_ttc %>€</td>
+          <td class="qty">1</td>
+          <td class="total"><%= invoiced_part.price_ttc %>€</td>
+        </tr>
+      <% end %>
+      <tr>
+        <td colspan="4">SOUS-TOTAL</td>
+        <td class="total"><%= @invoice.total_price %>€</td>
       </tr>
       <tr>
-        <td class="service">Development</td>
-        <td class="desc">Developing a Content Management System-based Website</td>
-        <td class="unit">$40.00</td>
-        <td class="qty">80</td>
-        <td class="total">$3,200.00</td>
+        <td colspan="4">Taxes</td>
+        <td class="total">0€</td>
       </tr>
       <tr>
-        <td class="service">SEO</td>
-        <td class="desc">Optimize the site for search engines (SEO)</td>
-        <td class="unit">$40.00</td>
-        <td class="qty">20</td>
-        <td class="total">$800.00</td>
-      </tr>
-      <tr>
-        <td class="service">Training</td>
-        <td class="desc">Initial training sessions for staff responsible for uploading web content</td>
-        <td class="unit">$40.00</td>
-        <td class="qty">4</td>
-        <td class="total">$160.00</td>
-      </tr>
-      <tr>
-        <td colspan="4">SUBTOTAL</td>
-        <td class="total">$5,200.00</td>
-      </tr>
-      <tr>
-        <td colspan="4">TAX 25%</td>
-        <td class="total">$1,300.00</td>
-      </tr>
-      <tr>
-        <td colspan="4" class="grand total">GRAND TOTAL</td>
-        <td class="grand total">$6,500.00</td>
+        <td colspan="4" class="grand total">NET A PAYER</td>
+        <td class="grand total"><%= @invoice.total_price %>€</td>
       </tr>
     </tbody>
   </table>
   <div id="notices">
-    <div>NOTICE:</div>
-    <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+    <div>NOTES :</div>
+    <div class="notice">TVA non applicable, art. 293 B du CGI. <br> Dispensé d'immatriculation en application de l'article L.123-1-1 du code de commerce.</div>
   </div>
 </main>

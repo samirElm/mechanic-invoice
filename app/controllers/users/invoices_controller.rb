@@ -25,9 +25,11 @@ class Users::InvoicesController < ApplicationController
 
   def create
     @invoice = current_user.invoices.build(invoice_params)
+    @invoice.define_price_mo(current_user)
 
     if @invoice.save
       @invoice.define_parts_ttc_price
+      @invoice.define_total_price
 
       redirect_to users_invoice_path(@invoice)
     else

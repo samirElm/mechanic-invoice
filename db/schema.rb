@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150711132104) do
+ActiveRecord::Schema.define(version: 20150712081839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 20150711132104) do
     t.string   "total_price_currency", default: "EUR", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "price_mo_cents",       default: 0,     null: false
+    t.string   "price_mo_currency",    default: "EUR", null: false
   end
 
   add_index "invoices", ["customer_id"], name: "index_invoices_on_customer_id", using: :btree
@@ -78,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150711132104) do
     t.string   "phone"
     t.string   "siret"
     t.integer  "price_per_hour_cents",    default: 0,     null: false
-    t.string   "price_per_hour_currency", default: "USD", null: false
+    t.string   "price_per_hour_currency", default: "EUR", null: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
