@@ -41,7 +41,7 @@
             <%= link_to "Créer une facture", new_users_invoice_path, class: "btn" %>
           </li>
           <li>
-            <%= link_to dashboard_path do %>
+            <%= link_to authenticated_root_path do %>
               <i class="fa fa-tachometer"></i> Tableau de bord
             <% end %>
           </li>
@@ -67,10 +67,10 @@
           </li>
         <% else %>
           <li>
-            <%= link_to t(".sign_up", default: "Sign up"), new_user_registration_path %>
+            <%= link_to "S'inscrire", new_user_registration_path %>
           </li>
           <li>
-            <%= link_to t(".sign_in", default: "Sign in"), new_user_session_path %>
+            <%= link_to "Se connecter", new_user_session_path %>
           </li>
         <% end %>
       </ul>
