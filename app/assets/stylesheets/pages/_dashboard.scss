@@ -181,9 +181,22 @@ font-size: 14px;
     text-align:center;
   }
 }
-
 .badge {
   background-color: #eee;
   color: #40576F;
   font-weight: 400;
+}
+.thead-ca {
+  th {
+    background: $blue;
+    color: white;
+    font-weight: 100;
+  }
+}
+.thead-charges {
+  th {
+    background: $darkblue;
+    font-weight: 100;
+    color: white;
+  }
 }
