@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
 
+
   def dashboard
     @monthly_ca = current_user.calculate_monthly_ca
     @monthly_invoices = current_user.define_month_invoices
