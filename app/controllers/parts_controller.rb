@@ -1,30 +1,31 @@
-class PartsController < ApplicationController
+# class PartsController < ApplicationController
 
-  def index
-    @parts = Part.all
-  end
+#   def index
+#     @parts = current_user.parts
+#   end
 
-  def new
-    @part = Part.new
-  end
+#   def new
+#     raise
+#     @part = current_user.parts.build
+#   end
 
-  def create
-    @part = Part.new(part_params)
+#   def create
+#     @part = current_user.parts.build(part_params)
 
-    if @part.save
-      redirect_to parts_path
-    else
-      flash[:alert] = "Erreur"
-      render :new
-    end
-  end
+#     if @part.save
+#       redirect_to parts_path
+#     else
+#       flash[:alert] = "Erreur"
+#       render :new
+#     end
+#   end
 
-  def destroy
-  end
+#   def destroy
+#   end
 
-  private
+#   private
 
-  def part_params
-    params.require(:part).permit(:name)
-  end
-end
+#   def part_params
+#     params.require(:part).permit(:name)
+#   end
+# end

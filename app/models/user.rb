@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
 
   has_many :customers
   has_many :invoices
+  has_many :parts
 
 
   def calculate_year_ca_per_month

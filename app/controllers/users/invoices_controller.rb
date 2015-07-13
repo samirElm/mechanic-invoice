@@ -20,8 +20,8 @@ class Users::InvoicesController < ApplicationController
   def new
     @invoice = current_user.invoices.build
     @invoice.invoiced_parts.build
-    @parts = Part.all
-    @customers = Customer.all
+    @parts = current_user.parts
+    @customers = current_user.customers
   end
 
   def create

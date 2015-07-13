@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   namespace :users do
     resources :customers
     resources :invoices
+    resources :parts
   end
-
-  resources :parts
 
 end
