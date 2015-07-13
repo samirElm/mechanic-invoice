@@ -99,7 +99,7 @@
                       <div class="panel-body text-center">
                           <div class="table-responsive">
                               <table class="table table-striped table-bordered table-hover">
-                                  <thead class="th-center">
+                                  <thead class="th-center thead-ca">
                                       <tr>
                                           <th>Mois</th>
                                           <th>Factures</th>
@@ -120,6 +120,40 @@
                                       <% end %>
                                   </tbody>
                               </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="col-xs-12">
+                  <div class="panel panel-default">
+                      <div class="panel-heading">
+                          <h3>Charges sociales de l'année <%= Date.today.year %>*</h3>
+                      </div>
+                      <div class="panel-body text-center">
+                          <div class="table-responsive">
+                              <table class="table table-striped table-bordered table-hover">
+                                  <thead class="th-center thead-charges">
+                                      <tr>
+                                          <th>Mois</th>
+                                          <th>CA</th>
+                                          <th>Charges main-d'oeuvre</th>
+                                          <th>Charges pièces</th>
+                                          <th>Charges total</th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <% @year_charges_elements.each_with_index do |element, index| %>
+                                        <tr>
+                                            <td><%= l(Date.new(2015, index + 1), format: :only_month_name).capitalize %></td>
+                                            <td><%= element[:monthly_ca] %> €</td>
+                                            <td><%= element[:monthly_charges_social_mo] %> €</td>
+                                            <td><%= element[:monthly_charges_social_parts] %> €</td>
+                                            <td><%= element[:monthly_charges_social_total] %> €</td>
+                                        </tr>
+                                      <% end %>
+                                  </tbody>
+                              </table>
+                              <p class='text-left'><i>*Main-d'oeuvre : 22.9% - Pièces : 13.3%</i></p>
                           </div>
                       </div>
                   </div>
