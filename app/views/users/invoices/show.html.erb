@@ -2,13 +2,83 @@
   <div>
     <div style="background-image: url(<%= asset_path 'motor.jpg' %>)" class="generic-banner">
     <div class="text-banner" style="padding-top: 30px;">
-      <h1>Facture n°<%= @invoice.id %></h1>
+      <h1></h1>
     </div>
   </div>
 <% end %>
 
 <div class="container">
-  <h1>Show de l'invoice n°<%= @invoice.id %></h1>
-  <p><%= @invoice.customer.first_name %></p>
-  <%= link_to "Voir toutes les factures", users_invoices_path %>
+  <div id="invoice-show">
+    <header class="clearfix">
+      <h2 class="text-center medium-padding-bottom">Facture n°<%= @invoice.id %></h2>
+      <div id="company" class="clearfix medium-padding-bottom">
+        <div><span></span> <%= current_user.first_name %> <%= current_user.last_name %></div>
+        <div><span>SIRET</span> <%= current_user.siret %></div>
+        <div><span>ADRESSE</span> <%= current_user.address %></div>
+        <div><span>TEL.</span> <%= current_user.phone %></div>
+        <div><span>EMAIL</span> <a href="mailto:<%= current_user.email %>"><%= current_user.email %></a></div>
+      </div>
+      <div id="customer" class="big-padding-bottom">
+        <div><span>CLIENT</span> <%= @invoice.customer.first_name %> <%= @invoice.customer.last_name %></div>
+        <div><span>ADRESSE</span> <%= @invoice.customer.address %></div>
+        <div><span>IMMAT.</span> <%= @invoice.customer.immat %></div>
+        <div><span>DATE</span> <%= @invoice.created_at.strftime("%d/%m/%Y") %></div>
+      </div>
+    </header>
+    <main>
+      <table>
+        <thead>
+          <tr>
+            <th class="service">SERVICE</th>
+            <th class="desc">DESCRIPTION</th>
+            <th>PRIX UNIT.</th>
+            <th>QTE</th>
+            <th>TOTAL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="service">MAIN-D'OEUVRE</td>
+            <td class="desc"><%= @invoice.description_mo.upcase %></td>
+            <td class="unit"><%= current_user.price_per_hour %>€</td>
+            <td class="qty"><%= @invoice.time_mo %></td>
+            <td class="total"><%= @invoice.price_mo %>€</td>
+          </tr>
+          <% @invoice.invoiced_parts.each do |invoiced_part| %>
+            <tr>
+              <td class="service">PIECE</td>
+              <td class="desc"><%= invoiced_part.part.name.upcase %></td>
+              <td class="unit"><%= invoiced_part.price_ttc / invoiced_part.quantity %>€</td>
+              <td class="qty"><%= invoiced_part.quantity %></td>
+              <td class="total"><%= invoiced_part.price_ttc %>€</td>
+            </tr>
+          <% end %>
+          <tr>
+            <td colspan="4">SOUS-TOTAL</td>
+            <td class="total"><%= @invoice.total_price %>€</td>
+          </tr>
+          <tr>
+            <td colspan="4">Taxes</td>
+            <td class="total">0€</td>
+          </tr>
+          <tr>
+            <td colspan="4" class="grand text-align-right">NET A PAYER</td>
+            <td class="grand total"><%= @invoice.total_price %>€</td>
+          </tr>
+        </tbody>
+      </table>
+      <div id="notices">
+        <div>NOTES :</div>
+        <div class="notice">TVA non applicable, art. 293 B du CGI. <br> Dispensé d'immatriculation en application de l'article L.123-1-1 du code de commerce.</div>
+      </div>
+    </main>
+  </div>
+  <div class="row text-center">
+    <div class="col-xs-6">
+      <%= link_to "Voir toutes les factures", users_invoices_path, class: "btn btn-primary" %>
+    </div>
+    <div class="col-xs-6">
+      <%= link_to "Imprimer / Télécharger", users_invoice_path(id: @invoice.id, format: 'pdf'), class: "btn btn-info", target: "_blank" %>
+    </div>
+  </div>
 </div>

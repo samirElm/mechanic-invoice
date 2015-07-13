@@ -3,16 +3,17 @@
     <img src="">
   </div>
   <h1>Facture n°<%= @invoice.id %></h1>
-  <div id="company" class="clearfix">
-    <div><%= current_user.first_name %> <%= current_user.last_name %></div>
-    <div><%= current_user.siret %></div>
-    <div><%= current_user.address %></div>
-    <div><%= current_user.phone %></div>
-    <div><a href="mailto:<%= current_user.first_name %>"><%= current_user.email %></a></div>
+  <div id="company" class="clearfix medium-padding-bottom">
+    <div><span></span> <%= current_user.first_name %> <%= current_user.last_name %></div>
+    <div><span>SIRET</span> <%= current_user.siret %></div>
+    <div><span>ADRESSE</span> <%= current_user.address %></div>
+    <div><span>TEL.</span> <%= current_user.phone %></div>
+    <div><span>EMAIL</span> <a href="mailto:<%= current_user.email %>"><%= current_user.email %></a></div>
   </div>
-  <div id="project">
+  <div id="customer" class="big-padding-bottom">
     <div><span>CLIENT</span> <%= @invoice.customer.first_name %> <%= @invoice.customer.last_name %></div>
     <div><span>ADRESSE</span> <%= @invoice.customer.address %></div>
+    <div><span>IMMAT.</span> <%= @invoice.customer.immat %></div>
     <div><span>DATE</span> <%= @invoice.created_at.strftime("%d/%m/%Y") %></div>
   </div>
 </header>
@@ -29,16 +30,16 @@
     </thead>
     <tbody>
       <tr>
-        <td class="service">Main-d'oeuvre</td>
-        <td class="desc"><%= @invoice.description_mo %></td>
+        <td class="service">MAIN-D'OEUVRE</td>
+        <td class="desc"><%= @invoice.description_mo.upcase %></td>
         <td class="unit"><%= current_user.price_per_hour %>€</td>
         <td class="qty"><%= @invoice.time_mo %></td>
         <td class="total"><%= @invoice.price_mo %>€</td>
       </tr>
       <% @invoice.invoiced_parts.each do |invoiced_part| %>
         <tr>
-          <td class="service">Pièce</td>
-          <td class="desc"><%= invoiced_part.part.name %></td>
+          <td class="service">PIECE</td>
+          <td class="desc"><%= invoiced_part.part.name.upcase %></td>
           <td class="unit"><%= invoiced_part.price_ttc / invoiced_part.quantity %>€</td>
           <td class="qty"><%= invoiced_part.quantity %></td>
           <td class="total"><%= invoiced_part.price_ttc %>€</td>
@@ -53,7 +54,7 @@
         <td class="total">0€</td>
       </tr>
       <tr>
-        <td colspan="4" class="grand total">NET A PAYER</td>
+        <td colspan="4" class="grand text-align-right">NET A PAYER</td>
         <td class="grand total"><%= @invoice.total_price %>€</td>
       </tr>
     </tbody>
