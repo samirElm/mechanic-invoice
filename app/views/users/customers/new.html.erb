@@ -2,11 +2,11 @@
   <%= simple_form_for(@customer, url: users_customers_path) do |f| %>
     <%= f.error_notification %>
 
-    <%= f.input :first_name, required: true, autofocus: true %>
-    <%= f.input :last_name, required: true, autofocus: true %>
-    <%= f.input :address, required: true, autofocus: true %>
-    <%= f.input :phone, required: true, autofocus: true %>
-    <%= f.input :immat, required: true, autofocus: true %>
+    <%= f.input :first_name, required: true, autofocus: true, label: "Prénom" %>
+    <%= f.input :last_name, required: true, autofocus: true, label: "Nom" %>
+    <%= f.input :address, required: true, autofocus: true, label: "Adresse" %>
+    <%= f.input :phone, required: true, autofocus: true, label: 'Téléphone' %>
+    <%= f.input :immat, required: true, autofocus: true, label: "Immatriculation" %>
     <%= f.button :submit, "Ajouter", class: "btn btn-primary" %>
   <% end %>
 </div>

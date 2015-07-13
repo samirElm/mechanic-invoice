@@ -1,3 +1,4 @@
 <div class="container">
-  <h1>nb de customers: <%= @customers.length %></h1>
+  <h1>Nombre de clients: <%= @customers.length %></h1>
+  <%= link_to "Ajouter un client", new_users_customer_path, class: "btn btn-primary" %>
 </div>
