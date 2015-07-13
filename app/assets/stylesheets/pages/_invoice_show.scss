@@ -1,0 +1,145 @@
+#invoice-show {
+  padding: 0px 10px 30px 10px;
+  margin-bottom: 30px;
+  border: 1px solid $gray-almost-super-light;
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .medium-padding-bottom {
+    padding-bottom: 20px;
+  }
+
+  .big-padding-bottom {
+    padding-bottom: 50px;
+  }
+  a {
+    color: grey;
+    text-decoration: underline;
+  }
+
+  body {
+    position: relative;
+    width: 21cm;
+    height: 29.7cm;
+    margin: 0 auto;
+    color: black;
+    background: #FFFFFF;
+    font-family: "Lato", "sans-serif";
+    font-size: 12px;
+  }
+
+  header {
+    padding: 10px 0;
+    margin-bottom: 30px;
+  }
+
+  #logo {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  #logo img {
+    width: 90px;
+  }
+
+  #customer {
+    float: right;
+  }
+
+  #customer span,
+  #company span {
+    color: rgba(115, 115, 115, 0.9);
+    width: 55px;
+    margin-right: 10px;
+    display: inline-block;
+  }
+
+  #company {
+    text-align: left;
+  }
+
+  #customer div,
+  #company div {
+    white-space: nowrap;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 60px;
+  }
+
+  table tr:nth-child(2n-1) td {
+    background: #F5F5F5;
+  }
+
+  table th,
+  table td {
+    text-align: center;
+  }
+
+  table th {
+    padding: 5px 20px;
+    color: rgba(115, 115, 115, 0.9);
+    border-bottom: 1px solid grey;
+    white-space: nowrap;
+    font-weight: normal;
+  }
+
+  table .service,
+  table .desc {
+    text-align: left;
+  }
+
+  table td {
+    padding: 20px;
+    text-align: right;
+  }
+
+  table td.service,
+  table td.desc {
+    vertical-align: top;
+  }
+
+  table .service {
+    width:18%;
+  }
+  table .desc {
+    width:40%;
+  }
+
+  table td.unit,
+  table td.qty,
+  table td.total {
+    font-size: 1.2em;
+    text-align:center;
+  }
+
+  table td.grand {
+    border-top: 1px solid rgba(115, 115, 115, 0.9);
+  }
+
+  .text-align-right {
+    text-align: right;
+  }
+
+  #notices .notice {
+    color: rgba(115, 115, 115, 0.9);
+    font-size: 1.2em;
+  }
+
+  footer {
+    color: rgba(115, 115, 115, 0.9);
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: 0;
+    border-top: 1px solid grey;
+    padding: 8px 0;
+    text-align: center;
+  }
+}

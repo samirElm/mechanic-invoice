@@ -14,6 +14,10 @@
   border:1px solid #f3f3f3;
 }
 
+.small-side-padding {
+  padding: 0px 1px;
+}
+
 
 // Specific dashboard style
 .page-header {
@@ -69,11 +73,11 @@ color: #5cb85c;
 }
  .bg-color-blue {
 background-color: #fff;
-color: #4CB1CF
+color: $blue
 }
   .bg-color-red {
 background-color: #fff;
-color:#F0433D;
+color:$red;
 }
   .bg-color-brown {
 background-color: #fff;
@@ -85,12 +89,12 @@ color:#fff;
 border-top: 0px solid #fff;
 }
  .back-footer-red {
-background-color: #F0433D;
+background-color: $red;
 color:#fff;
 border-top: 0px solid #fff;
 }
  .back-footer-blue {
-background-color: #4CB1CF;
+background-color: $blue;
 color:#fff;
 border-top: 0px solid #fff;
 }
