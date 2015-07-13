@@ -1,10 +1,10 @@
 class Users::CustomersController < ApplicationController
   def index
-    @customers = Customer.all
+    @customers = current_user.customers
   end
 
   def show
-    @customer = Customer.find(params[:id])
+    @customer = current_user.customers.find(params[:id])
   end
 
   def new

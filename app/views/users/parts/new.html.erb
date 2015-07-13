@@ -1,0 +1,8 @@
+<div class="container">
+  <%= simple_form_for(@part, url: users_parts_path) do |f| %>
+    <%= f.error_notification %>
+
+    <%= f.input :name, required: true, autofocus: true, label: "Nom de la pièce" %>
+    <%= f.button :submit, "Ajouter", class: "btn btn-primary" %>
+  <% end %>
+</div>

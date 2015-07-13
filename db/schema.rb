@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150713090332) do
+ActiveRecord::Schema.define(version: 20150713131656) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,8 +60,11 @@ ActiveRecord::Schema.define(version: 20150713090332) do
   add_index "invoices", ["user_id"], name: "index_invoices_on_user_id", using: :btree
 
   create_table "parts", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "user_id"
   end
+
+  add_index "parts", ["user_id"], name: "index_parts_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                   default: "",    null: false
@@ -83,6 +86,8 @@ ActiveRecord::Schema.define(version: 20150713090332) do
     t.string   "siret"
     t.integer  "price_per_hour_cents",    default: 0,     null: false
     t.string   "price_per_hour_currency", default: "EUR", null: false
+    t.string   "mobile_phone"
+    t.string   "company"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
