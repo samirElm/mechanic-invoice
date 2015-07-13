@@ -1,7 +1,7 @@
 class Users::InvoicesController < ApplicationController
 
   def index
-    @invoices = current_user.invoices
+    @invoices = current_user.invoices.sort_by { |invoice| invoice.created_at }.reverse
   end
 
   def show
