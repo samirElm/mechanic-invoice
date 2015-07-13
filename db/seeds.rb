@@ -9,6 +9,6 @@
 require 'roo'
 xlsx = Roo::Spreadsheet.open('db/parts.xlsx')
 
-for i in (2..241)
-  Part.create(name: xlsx.cell(i,2), user_id: 5)
+for i in (2..240)
+  Part.create(name: xlsx.cell(i,2), user_id: 1)
 end
