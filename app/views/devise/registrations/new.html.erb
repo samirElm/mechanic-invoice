@@ -5,13 +5,15 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
 
-        <%= f.input :email, required: true, autofocus: true %>
-        <%= f.input :first_name, required: true, autofocus: true %>
-        <%= f.input :last_name, required: true, autofocus: true %>
-        <%= f.input :address, required: true, autofocus: true %>
-        <%= f.input :phone, required: true, autofocus: true %>
-        <%= f.input :siret, required: true, autofocus: true %>
-        <%= f.input :price_per_hour, required: true, autofocus: true %>
+        <%= f.input :email, required: true, autofocus: true, label: "Email" %>
+        <%= f.input :first_name, required: true, autofocus: true, label: "Prénom" %>
+        <%= f.input :last_name, required: true, autofocus: true, label: "Nom" %>
+        <%= f.input :address, required: true, autofocus: true, label: "Adresse" %>
+        <%= f.input :phone, required: true, autofocus: true, label: "Téléphone (domicile)" %>
+        <%= f.input :mobile_phone, required: true, autofocus: true, label: "Téléphone (portable)" %>
+        <%= f.input :company, required: true, autofocus: true, label: "Nom de l'auto-entreprise" %>
+        <%= f.input :siret, required: true, autofocus: true, label: "Numéro de SIRET" %>
+        <%= f.input :price_per_hour, required: true, autofocus: true, label: "Prix à l'heure" %>
         <%= f.input :password, required: true %>
         <%= f.button :submit, t('.sign_up', default: "Sign up"), class: "btn btn-primary" %>
       <% end %>
