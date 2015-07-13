@@ -51,6 +51,6 @@ class Users::InvoicesController < ApplicationController
   private
 
   def invoice_params
-    params.require(:invoice).permit(:customer_id, :description_mo, :time_mo, invoiced_parts_attributes: [:part_id, :price_ht, :ref, :discount_provider, :_destroy])
+    params.require(:invoice).permit(:customer_id, :description_mo, :time_mo, invoiced_parts_attributes: [:part_id, :price_ht, :ref, :discount_provider, :quantity, :_destroy])
   end
 end

@@ -3,10 +3,13 @@
     <%= f.input :part_id, collection: @parts, label: "Nom de la pièce" %>
   </div>
   <div class="col-xs-2 input-padded">
-    <%= f.input :price_ht, label: "Prix HT" %>
+    <%= f.input :price_ht, label: "Prix total HT" %>
   </div>
-  <div class="col-xs-2 input-padded">
+  <div class="col-xs-1 input-padded text-center">
     <%= f.input :discount_provider, label: "Remise" %>
+  </div>
+  <div class="col-xs-1 input-padded">
+    <%= f.input :quantity, label: "Quantité", input_html: {value: '1'} %>
   </div>
   <div class="col-xs-3 input-padded">
     <%= f.input :ref, label: "Référence" %>

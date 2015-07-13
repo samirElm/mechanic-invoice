@@ -14,8 +14,8 @@ class Invoice < ActiveRecord::Base
     self.invoiced_parts.each do |invoiced_part|
       discount = invoiced_part.discount_provider
       case discount
-         when 30..100 then invoiced_part.price_ttc = invoiced_part.price_ht * 1.2
-         when 1...30 then invoiced_part.price_ttc = invoiced_part.price_ht * 1.3
+         when 31..100 then invoiced_part.price_ttc = invoiced_part.price_ht * 1.2
+         when 1..30 then invoiced_part.price_ttc = invoiced_part.price_ht * 1.3
          when 0 then invoiced_part.price_ttc = invoiced_part.price_ht * 1.4
       end
       invoiced_part.save
