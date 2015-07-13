@@ -39,8 +39,8 @@
         <tr>
           <td class="service">Pièce</td>
           <td class="desc"><%= invoiced_part.part.name %></td>
-          <td class="unit"><%= invoiced_part.price_ttc %>€</td>
-          <td class="qty">1</td>
+          <td class="unit"><%= invoiced_part.price_ttc / invoiced_part.quantity %>€</td>
+          <td class="qty"><%= invoiced_part.quantity %></td>
           <td class="total"><%= invoiced_part.price_ttc %>€</td>
         </tr>
       <% end %>
