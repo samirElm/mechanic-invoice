@@ -30,6 +30,7 @@ class Users::InvoicesController < ApplicationController
 
     if @invoice.save
       @invoice.define_parts_ttc_price
+      @invoice.define_parts_customer_price
       @invoice.define_total_price
 
       redirect_to users_invoice_path(@invoice)

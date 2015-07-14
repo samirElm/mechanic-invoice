@@ -48,9 +48,9 @@
             <tr>
               <td class="service">PIECE</td>
               <td class="desc"><%= invoiced_part.part.name.upcase %></td>
-              <td class="unit"><%= invoiced_part.price_ttc / invoiced_part.quantity %>€</td>
+              <td class="unit"><%= invoiced_part.price_customer / invoiced_part.quantity %>€</td>
               <td class="qty"><%= invoiced_part.quantity %></td>
-              <td class="total"><%= invoiced_part.price_ttc %>€</td>
+              <td class="total"><%= invoiced_part.price_customer %>€</td>
             </tr>
           <% end %>
           <tr>

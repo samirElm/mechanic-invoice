@@ -4,4 +4,5 @@ class InvoicedPart < ActiveRecord::Base
 
   monetize :price_ttc_cents
   monetize :price_ht_cents
+  monetize :price_customer_cents
 end
