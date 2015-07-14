@@ -12,6 +12,7 @@ gem "devise"
 gem "pundit"
 gem "paperclip"
 gem "aws-sdk", "< 2.0"
+gem 'activeadmin', github: 'activeadmin'
 
 gem "jquery-rails"
 gem "sass-rails", "~> 5.0"
@@ -31,6 +32,7 @@ gem 'wicked_pdf'
 gem 'wkhtmltopdf-binary'
 gem 'wkhtmltopdf-heroku', '~> 2.12.2.1'
 
+# parse a xlsx file (to delete after db seed)
 gem 'roo', '~> 2.0.0'
 
 group :development, :test do
