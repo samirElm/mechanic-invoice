@@ -53,7 +53,7 @@
   }
 }
 
- .btn.white{
+.btn-white{
   display: inline-block;
   border-radius: 3px;
   color: $blue;
@@ -74,6 +74,33 @@
   background-image: none;
   &:hover{
     transition: ease 0.3s;
+  }
+ }
+
+ #btn-navbar-new-invoice {
+  border-radius: 3px;
+  color: $blue;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  margin-left: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border: 1px solid $blue;
+  background-color: white;
+  transition: ease 0.3s;
+  // font-weight: normal;
+  // text-align: center;
+  // vertical-align: middle;
+  // touch-action: manipulation;
+  // cursor: pointer;
+  // font-size: 14px;
+  // white-space: nowrap;
+  // line-height: 1.4;
+  // background-image: none;
+  &:hover{
+    transition: ease 0.3s;
+    background-color: $darkblue;
+    color: white;
   }
  }
 
