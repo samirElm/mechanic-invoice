@@ -1,18 +1,12 @@
-<div class="">
-  <div class="row">
-    <div class="col-xs-12">
-      <% if notice %>
-        <div class="alert alert-info alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <%= notice %>
-        </div>
-      <% end %>
-      <% if alert %>
-        <div class="alert alert-warning alert-dismissible" role="alert">
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <%= alert %>
-        </div>
-      <% end %>
+<div style="margin-left: 230px;">
+  <% if notice %>
+    <div class="alert alert-dismissible text-center flashes" role="alert" id="notices">
+      <%= notice %>
     </div>
-  </div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-dismissible text-center flashes" role="alert" id="alerts">
+      <%= alert %>
+    </div>
+  <% end %>
 </div>

@@ -53,10 +53,9 @@ $navbar-profile-border-width: 2px;
   letter-spacing: $navbar-letter-spacing;
   padding-left: $navbar-horizontal-padding;
   padding-right: $navbar-horizontal-padding;
-  border-bottom: $navbar-border-bottom-width solid $navbar-border-bottom-color;
   min-height: 0;
   transition: background 0.4s ease;
-  box-shadow: 0 2px 3px #272727;
+  box-shadow: 0 0px 3px #272727;
   .navbar-nav > li {
     width: 100%;
   }

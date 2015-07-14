@@ -43,3 +43,20 @@
 .padding-top-row {
   padding-top: 20px;
 }
+.flashes {
+  position: absolute;
+  top: 0px;
+  width: 82vw;
+  z-index: 999;
+  color: white;
+  opacity: 0.9;
+  border: none;
+  padding: 26px;
+}
+#notices {
+  background-color: $blue;
+}
+#alerts {
+  background-color: $red;
+}
+
