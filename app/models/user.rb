@@ -98,7 +98,7 @@ class User < ActiveRecord::Base
 
     invoices_current_month.each do |invoice|
       invoice.invoiced_parts.each do |invoiced_part|
-        monthly_parts_ca += invoiced_part.price_ttc
+        monthly_parts_ca += invoiced_part.price_customer
       end
     end
 
@@ -142,7 +142,7 @@ class User < ActiveRecord::Base
 
     invoices_current_month.each do |invoice|
       invoice.invoiced_parts.each do |invoiced_part|
-        monthly_parts_expenses += invoiced_part.price_ht
+        monthly_parts_expenses += invoiced_part.price_ttc
       end
     end
 

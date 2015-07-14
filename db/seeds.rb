@@ -6,9 +6,9 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-require 'roo'
-xlsx = Roo::Spreadsheet.open('db/parts.xlsx')
+# require 'roo'
+# xlsx = Roo::Spreadsheet.open('db/parts.xlsx')
 
-for i in (2..240)
-  Part.create(name: xlsx.cell(i,2), user_id: 1)
-end
+# for i in (2..240)
+#   Part.create(name: xlsx.cell(i,2), user_id: 1)
+# end
