@@ -26,16 +26,20 @@ class Users::InvoicesController < ApplicationController
 
   def create
     @invoice = current_user.invoices.build(invoice_params)
-    @invoice.define_price_mo(current_user)
 
     if @invoice.save
+      @invoice.define_price_mo(current_user)
       @invoice.define_parts_ttc_price
       @invoice.define_parts_customer_price
       @invoice.define_total_price
 
       redirect_to users_invoice_path(@invoice)
     else
-      flash[:alert] = "Erreur"
+      flash[:alert] = "Pensez à bien remplir tous les champs !"
+      @invoice = current_user.invoices.build
+      @invoice.invoiced_parts.build
+      @parts = current_user.parts
+      @customers = current_user.customers
       render :new
     end
   end
