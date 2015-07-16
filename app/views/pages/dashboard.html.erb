@@ -105,7 +105,9 @@
                                           <th>Factures</th>
                                           <th>Chiffre d'affaires</th>
                                           <th>Heures de travail</th>
-                                          <th>Revenu net</th>
+                                          <th>Revenu net pièces</th>
+                                          <th>Revenu net m.o</th>
+                                          <th>Revenu net total</th>
                                       </tr>
                                   </thead>
                                   <tbody>
@@ -115,7 +117,9 @@
                                             <td><%= element[:monthly_invoices] %></td>
                                             <td><%= element[:monthly_ca] %> €</td>
                                             <td><%= element[:monthly_mo_hours] %></td>
-                                            <td><%= element[:monthly_net_profit] %> €</td>
+                                            <td><%= element[:monthly_net_profit_parts] %> €</td>
+                                            <td><%= element[:monthly_net_profit_mo] %> €</td>
+                                            <td><%= element[:monthly_net_profit_total] %> €</td>
                                         </tr>
                                       <% end %>
                                   </tbody>
@@ -153,7 +157,7 @@
                                       <% end %>
                                   </tbody>
                               </table>
-                              <p class='text-left'><i>*Main-d'oeuvre : 22.9% - Pièces : 13.3%</i></p>
+                              <p class='text-left'><i>*Main-d'oeuvre : 22.9% - Pièces : 20.0%</i></p>
                           </div>
                       </div>
                   </div>

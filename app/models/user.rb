@@ -19,7 +19,9 @@ class User < ActiveRecord::Base
       array_month = {}
       array_month[:monthly_mo_hours] = calculate_monthly_mo_hours(month_number)
       array_month[:monthly_ca] = calculate_monthly_ca(month_number)
-      array_month[:monthly_net_profit] = calculate_monthly_net_profit_total(month_number)
+      array_month[:monthly_net_profit_total] = calculate_monthly_net_profit_total(month_number)
+      array_month[:monthly_net_profit_parts] = calculate_monthly_net_profit_parts(month_number)
+      array_month[:monthly_net_profit_mo] = calculate_monthly_net_profit_mo(month_number)
       array_month[:monthly_invoices] = define_month_invoices(month_number).length
 
       array_year_ca_per_month << array_month
@@ -70,13 +72,16 @@ class User < ActiveRecord::Base
   end
 
   def calculate_monthly_net_profit_total(given_month = nil)
-    monthly_ca = self.calculate_monthly_ca(given_month)
-    monthly_charges_social = calculate_monthly_charges_social_total(given_month)
-    monthly_parts_expenses = calculate_monthly_parts_expenses(given_month)
+    # monthly_ca = self.calculate_monthly_ca(given_month)
+    # monthly_charges_social = calculate_monthly_charges_social_total(given_month)
+    # monthly_parts_expenses = calculate_monthly_parts_expenses(given_month)
 
-    monthly_net_profit = monthly_ca - monthly_parts_expenses - monthly_charges_social
+    # monthly_net_profit = monthly_ca - monthly_parts_expenses - monthly_charges_social
 
-    return monthly_net_profit
+    monthly_net_profit_mo = calculate_monthly_net_profit_mo(given_month)
+    monthly_net_profit_parts = calculate_monthly_net_profit_parts(given_month)
+
+    return monthly_net_profit = monthly_net_profit_mo + monthly_net_profit_parts
   end
 
   def calculate_monthly_mo_hours(given_month = nil)
@@ -105,6 +110,12 @@ class User < ActiveRecord::Base
     return monthly_parts_ca
   end
 
+  def calculate_monthly_ca_mo(given_month = nil)
+    monthly_mo_hours = calculate_monthly_mo_hours(given_month)
+
+    return monthly_ca_mo = monthly_mo_hours * self.price_per_hour
+  end
+
   def calculate_monthly_charges_social_total(given_month = nil)
     charges_social_mo = calculate_monthly_charges_social_mo(given_month)
     charges_social_parts = calculate_monthly_charges_social_parts(given_month)
@@ -123,7 +134,7 @@ class User < ActiveRecord::Base
 
   def calculate_monthly_charges_social_parts(given_month = nil)
     monthly_ca_parts = calculate_monthly_ca_parts(given_month)
-    charges_social_parts = monthly_ca_parts * 0.133
+    charges_social_parts = monthly_ca_parts * 0.2
 
     return charges_social_parts
   end
@@ -131,8 +142,16 @@ class User < ActiveRecord::Base
   def calculate_monthly_net_profit_parts(given_month = nil)
     monthly_parts_expenses = calculate_monthly_parts_expenses(given_month)
     monthly_parts_ca = calculate_monthly_ca_parts(given_month)
+    monthly_charges_social_parts = calculate_monthly_charges_social_parts(given_month)
 
-    return monthly_net_profit_parts = monthly_parts_ca - monthly_parts_expenses
+    return monthly_net_profit_parts = monthly_parts_ca - monthly_parts_expenses - monthly_charges_social_parts
+  end
+
+  def calculate_monthly_net_profit_mo(given_month = nil)
+    monthly_ca_mo = calculate_monthly_ca_mo(given_month)
+    monthly_charges_social_mo = calculate_monthly_charges_social_mo(given_month)
+
+    return monthly_net_profit_mo = monthly_ca_mo - monthly_charges_social_mo
   end
 
   def calculate_monthly_parts_expenses(given_month = nil)
