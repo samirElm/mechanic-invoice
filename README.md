@@ -4,7 +4,7 @@
 
 Mechanic Invoice is a simple, free and easy-to-use web app for independent mechanics. It helps them handle their quotes, invoices and balance sheet.
 
-![Mechanic Invoice Dashboard](app/assets/images/screenshot-dashboard.jpg)
+![Mechanic Invoice Dashboard](app/assets/images/screenshot-dashboard.png)
 
 ## Configuration
 
