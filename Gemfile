@@ -44,6 +44,8 @@ group :development, :test do
   gem "pry-byebug"
   gem "pry-rails"
   gem "letter_opener"
+  gem "rspec-rails"
+  gem "factory_girl_rails", "~> 4.0"
 end
 
 group :production do
